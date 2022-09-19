@@ -29,7 +29,7 @@ public class Workstation {
 
     private String inventoryNumber;
 
-    private String networkHostName;
+    private String networkHostName; // имя узла в сети
 
     private String ipAddress;
 
@@ -37,7 +37,7 @@ public class Workstation {
     @JoinColumn(name = "operation_system_id")
     private OperationSystem operationSystem;
 
-    private String sealNumber;
+    private String sealNumber; // номер пломбы
 
     private Boolean isBiosPasswordChanged;
 

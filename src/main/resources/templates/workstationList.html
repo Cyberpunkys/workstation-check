@@ -42,9 +42,104 @@
                     <label class="form-label">
                         Тип АРМ
                         <select th:name="type" class="form-select">
-                            <option th:each="type : ${typesPC}"></option>
+                            <option th:each="type : ${typesPC}" th:value="${type}" th:text="${type.getName()}"></option>
                         </select>
                     </label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputInventoryNumber" class="form-label">Инвентарный номер</label>
+                    <input type="text" th:name="inventoryNumber" id="inputInventoryNumber" class="form-control"/>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputNetworkHostName" class="form-label">Имя узла сети</label>
+                    <input type="text" th:name="networkHostName" id="inputNetworkHostName" class="form-control"/>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputIpAddress" class="form-label">IPv4 адрес</label>
+                    <input type="text" th:name="ipAddress" id="inputIpAddress" class="form-control"/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="form-label">
+                        Тип АРМ
+                        <select th:name="os" class="form-select">
+                            <option th:each="o : ${listOS}" th:value="${o.id}" th:text="${o.name}"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputSealNumber" class="form-label">IPv4 адрес</label>
+                    <input type="text" th:name="sealNumber" id="inputSealNumber" class="form-control"/>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Смена пароля BIOS
+                        <select class="form-select" th:name="isBiosPasswordChanged">
+                            <option th:value="${true}" th:text="Да"></option>
+                            <option th:value="${false}" th:text="Нет"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Наличие прав Администратора
+                        <select class="form-select" th:name="hasAdministratorAuthority">
+                            <option th:value="${false}" th:text="Нет"></option>
+                            <option th:value="${true}" th:text="Да"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputCryptoProLicense" class="form-label">Лицензия CryptoPro</label>
+                    <input type="text" th:name="cryptoProLicense" id="inputCryptoProLicense" class="form-control"/>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Наличие KESL
+                        <select class="form-select" th:name="hasKesl">
+                            <option th:value="${true}" th:text="Да"></option>
+                            <option th:value="${false}" th:text="Нет"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Наличие SNS
+                        <select class="form-select" th:name="hasSns">
+                            <option th:value="${true}" th:text="Да"></option>
+                            <option th:value="${false}" th:text="Нет"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Наличие Ассистент
+                        <select class="form-select" th:name="hasAssistant">
+                            <option th:value="${true}" th:text="Да"></option>
+                            <option th:value="${false}" th:text="Нет"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Наличие КонсультантПлюс
+                        <select class="form-select" th:name="hasConsultant">
+                            <option th:value="${true}" th:text="Да"></option>
+                            <option th:value="${false}" th:text="Нет"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-1">
+                    <label>
+                        Несанкционированное ПО
+                        <select class="form-select" th:name="hasUnauthorizedSoftware">
+                            <option th:value="${false}" th:text="Нет"></option>
+                            <option th:value="${true}" th:text="Да"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputNote" class="form-label">Примечание</label>
+                    <textarea th:name="note" id="inputNote" class="form-control"></textarea>
                 </div>
             </div>
             <button type="submit" class="btn col-sm-1 my-4 text-light" style="background-color: #00446d;">
@@ -59,8 +154,8 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="">
-            <td><div th:text="">Название</div></td>
+        <tr>
+            <td><div>Название</div></td>
         </tr>
         </tbody>
     </table>
